@@ -20,7 +20,9 @@
   main {
     flex: 1;
     width: 100%;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   #header_title a {
@@ -131,71 +133,72 @@
   }
 
   #main_container {
+    display: flex;
     width: 100%;
-    margin: 0 auto;
-    padding: 1.5rem;
+    padding: 3rem;
   }
 
   #container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 250px);
-    justify-content: center;
-    gap: 2.5rem;
-    width: 100%;
-  }
-
-  .card {
-    border-radius: 25px;
-    height: 400px;
     display: flex;
     flex-direction: column;
+    margin-left: 3rem;
     align-items: center;
   }
 
-  .green {
-    background-color: #009E48;
-    color: black;
+  #description {
+    border-top: 2px solid #009E48;
+    border-bottom: 2px solid #0091C4;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
   }
 
-  .blue {
-    background-color: #0091C4;
-    color: white;
+  #information, #quantity, #counter {
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    font-weight: bold;
   }
 
-  .card a {
-    width: 150px;
-    border-radius: 25px;
+  #information {
+    margin-top: 0.5rem;
+    gap: 40rem;
+  }
+
+  #counter {
+    margin-left: 10rem;
+    gap: 3rem;
+    font-size: xx-large;
+  }
+
+  #cart {
+    width: 200px;
+    height: 55px;
+    border-radius: 45px;
     justify-content: center;
     align-items: center;
+    color: black;
+    font-size: x-large;
     display: flex;
     background-color: #E7E7E7;
     margin-top: 0.75rem;
-  }
-
-  .price_product {
-    margin-top: 1rem;
-    margin-bottom: 0.1rem;
-  }
-
-  .card h2 {
-    margin-bottom: 1rem;
-  }
-
-  .card a {
-    color: black;
     text-decoration: none;
   }
 
-  .card a img {
-    width: 25px;
+  #cart img {
+    width: 30px;
     height: auto;
     margin-right: 0.75rem;
   }
 
-  .product_img {
-    height: 200px;
-    max-width: 225px;
-    margin-top: 1.25rem;
-    width: auto;
-    border-radius: 25px;
+  #product_img {
+    width: 500px;
+    height: auto;
+  }
+
+  #data {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+    align-items: center;
+    gap: 1rem;
   }

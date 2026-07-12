@@ -1,6 +1,6 @@
 <?php
-$dsn      = 'mysql:host=172.21.82.206;dbname=z126004;charset=utf8';
-$username = 'z126004';
+$dsn      = 'mysql:host=172.21.82.206;dbname=group19;charset=utf8';
+$username = 'group19';
 $password = '9056';
 
 try {
