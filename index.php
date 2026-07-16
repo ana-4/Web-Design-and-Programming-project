@@ -1,3 +1,19 @@
+<?php
+require ('./models/database.php');
+require('./models/categories_db.php');
+require('./models/products_db.php');
+
+$categories = getCategories();
+
+if (isset($_GET['category']) && !empty($_GET['category'])) {
+    $categoryId = intval($_GET['category']);
+    $products = getProductsByCategory($categoryId); 
+    $nbProduct = getNbProductsByCategory($categoryId);
+} else {
+    $products = getProducts();
+    $nbProduct = getNbProducts();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,10 +39,9 @@
             <div class="selection_menu">
                 <button>Shop by categories ⌄</button>
                 <div class="selection_elt">
-                    <!-- Onclick : update la variable productList selon la categorieId ou ouvrir une nouvelle page -->
-                    <a>Sweets</a>
-                    <a>Soups</a>
-                    <a>Drinks</a>
+                    <?php foreach ($categories as $category): ?>
+                        <a href="index.php?category=<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></a>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
@@ -48,66 +63,36 @@
     </header>
 
     <main>
-        <div id="main_container">
-            <div id="container">
-                <!-- Comment bien alterner les couleurs selon la taille de l'écran ? (Calculer combien on peut en mettre max ?) -->
-                <div class="card blue">
-                    <img src="images/famichiki_temp.jpg" alt="picture of a Famichiki" class="product_img">
-                    <p class="price_product">Price</p>
-                    <h2>Name</h2>
-                    <!-- Rajouter un productId en param -->
-                    <a href="product_page.php">
-                        <img src="images/cart_icon.svg">
-                        <p>Add to cart</p>
-                    </a>
-                </div>
-                <div class="card green">
-                    <img src="images/famichiki_temp.jpg" alt="picture of a Famichiki" class="product_img">
-                    <p class="price_product">Price</p>
-                    <h2>Name</h2>
-                    <a href="product_page.php">
-                        <img src="images/cart_icon.svg">
-                        <p>Add to cart</p>
-                    </a>
-                </div>
-                <div class="card blue">
-                    <img src="images/famichiki_temp.jpg" alt="picture of a Famichiki" class="product_img">
-                    <p class="price_product">Price</p>
-                    <h2>Name</h2>
-                    <a href="product_page.php">
-                        <img src="images/cart_icon.svg">
-                        <p>Add to cart</p>
-                    </a>
-                </div>
-                <div class="card green">
-                    <img src="images/famichiki_temp.jpg" alt="picture of a Famichiki" class="product_img">
-                    <p class="price_product">Price</p>
-                    <h2>Name</h2>
-                    <a href="product_page.php">
-                        <img src="images/cart_icon.svg">
-                        <p>Add to cart</p>
-                    </a>
-                </div>
-                <div class="card blue">
-                    <img src="images/famichiki_temp.jpg" alt="picture of a Famichiki" class="product_img">
-                    <p class="price_product">Price</p>
-                    <h2>Name</h2>
-                    <a href="product_page.php">
-                        <img src="images/cart_icon.svg">
-                        <p>Add to cart</p>
-                    </a>
-                </div>
-                <div class="card green">
-                    <img src="images/famichiki_temp.jpg" alt="picture of a Famichiki" class="product_img">
-                    <p class="price_product">Price</p>
-                    <h2>Name</h2>
-                    <a href="product_page.php">
-                        <img src="images/cart_icon.svg">
-                        <p>Add to cart</p>
-                    </a>
+            <div id="main_container">
+                <div id="container">
+                    <?php 
+                    $i = 0;
+                    while ($product = $products->fetch()): 
+                        $cardClass = ($i % 2 === 0) ? 'blue' : 'green';
+                    ?>
+                        <div class="card <?= $cardClass ?>">
+                            <img src="images/products/<?= htmlspecialchars($product['image']) ?>" alt="picture of a <?= htmlspecialchars($product['name']) ?>" class="product_img">
+                            <p class="price_product">¥<?= $product['price'] ?></p>
+                            <h2><?= htmlspecialchars($product['name']) ?></h2>
+                            <?php 
+                                if (isset($_GET['user']) && !empty($_GET['user'])) { ?>
+                                    <a href="product_page.php?id=<?= $product['id'] ?>">
+                                        <img src="images/cart_icon.svg" alt="cart icon">
+                                        <p>Add to cart</p>
+                                    </a>
+                                <?= } else { ?>
+                                    <a href="login.php">
+                                        <img src="images/cart_icon.svg" alt="cart icon">
+                                        <p>Add to cart</p>
+                                    </a>
+                                <?= } ?>
+                        </div>
+                    <?php 
+                        $i++;
+                    endwhile; 
+                    ?>
                 </div>
             </div>
-        </div>
     </main>
 
     <footer>

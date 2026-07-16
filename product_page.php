@@ -1,4 +1,13 @@
+<?php
+require ('./models/database.php');
+require('./models/products_db.php');
+require('./models/categories_db.php');
 
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$product = getProductById($id);
+$categories = getCategories();
+?>
+<!-- recupérer le user pour le faire passer dans le add to cart -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,10 +32,9 @@
             <div class="selection_menu">
                 <button>Shop by categories ⌄</button>
                 <div class="selection_elt">
-                    <!-- Onclick : update la variable productList selon la categorieId ou ouvrir une nouvelle page -->
-                    <a>Sweets</a>
-                    <a>Soups</a>
-                    <a>Drinks</a>
+                    <?php foreach ($categories as $category): ?>
+                        <a href="index.php?category=<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></a>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
@@ -49,35 +57,34 @@
 
     <main>
         <div id="main_container">
-            <img src="images/famichiki_temp.jpg" alt="a picture of a Famichiki" id="product_img">
+            <img src="images/products/<?= htmlspecialchars($product['image']) ?>" alt="a picture of a <?= htmlspecialchars($product['name']) ?>" id="product_img">
 
             <div id="container">
                 <section id="description">
-                    <h2>Famichiki</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h2><?= htmlspecialchars($product['name']) ?></h2>
+                    <p><?= htmlspecialchars($product['description']) ?></p>
                 </section>
 
                 <section id="data">
                     <section id="information">
-                        <p>Stock left: 5</p>
-                        <p>Price: ¥213</p>
+                        <p>Stock left: <?= $product['stock'] ?></p>
+                        <p>Price: ¥<?= $product['price'] ?></p>
                     </section>
 
-                    <section id="quantity">
-                        <p>Quantity: </p>
-
-                        <div id="counter">
-                            <a>+</a><!-- Mettre un onclick pour updater la variable et l'affichage -->
-                            <p>1</p><!-- Mettre sous la forme d'une variable -->
-                            <a>-</a>
-                        </div>
-
-                    </section>
-                    <!-- Rajouter un productId et un quantity en param -->
-                    <a href="add_to_cart.php" id="cart">
-                        <img src="images/cart_icon.svg">
-                        <p>Add to cart</p>
-                    </a>
+                    <?php if ($product['stock'] > 0) { ?>
+                        <form action="add_to_cart.php" method="GET">
+                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                            <section id="quantity">
+                                <label for="quantity_input">Quantity: </label>
+                                <input type="number" id="quantity_input" name="quantity" value="1" min="1" max="<?= $product['stock'] ?>">
+                            </section>
+                        
+                            <button type="submit" id="cart">
+                                <img src="images/cart_icon.svg" alt="Cart icon">
+                                <p>Add to cart</p>
+                            </button>
+                        </form>
+                    <?php } ?>
                 </section>
             </div>
         </div>

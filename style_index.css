@@ -146,10 +146,12 @@
 
   .card {
     border-radius: 25px;
-    height: 400px;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding-bottom: 1rem;
   }
 
   .green {
@@ -169,16 +171,17 @@
     align-items: center;
     display: flex;
     background-color: #E7E7E7;
-    margin-top: 0.75rem;
-  }
-
-  .price_product {
-    margin-top: 1rem;
-    margin-bottom: 0.1rem;
+    margin-top: 0;
   }
 
   .card h2 {
-    margin-bottom: 1rem;
+    margin: auto 0;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  .price_product {
+    margin-bottom: 0;
   }
 
   .card a {
@@ -199,3 +202,39 @@
     width: auto;
     border-radius: 25px;
   }
+
+@media (max-width: 768px) {
+    #header_center {
+        height: auto;
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    #header_title h1 {
+      display: none;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    
+    #cart_icon {
+      height: 30px;
+    }
+
+    #person_icon {
+      height: 40px;
+    }
+
+    header button {
+      width: 120px;
+      font-size: 0.85rem;
+      margin-left: 0;
+    }
+
+    .selection_elt {
+      min-width: 120px;
+      margin-left: 0;
+    }
+}
