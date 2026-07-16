@@ -80,12 +80,12 @@ if (isset($_GET['category']) && !empty($_GET['category'])) {
                                         <img src="images/cart_icon.svg" alt="cart icon">
                                         <p>Add to cart</p>
                                     </a>
-                                <?= } else { ?>
+                                <?php } else { ?>
                                     <a href="login.php">
                                         <img src="images/cart_icon.svg" alt="cart icon">
                                         <p>Add to cart</p>
                                     </a>
-                                <?= } ?>
+                                <?php } ?>
                         </div>
                     <?php 
                         $i++;
