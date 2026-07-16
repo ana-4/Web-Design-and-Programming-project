@@ -46,8 +46,8 @@ $categories = getCategories();
             </div>
 
             <div id="page_links">
-                <a href="cart.html"><img src="images/blue_cart_icon.svg" alt="blue icon of a cart" id="cart_icon"></a>
-                <a href="login.html"><img src="images/person_icon.svg" alt="blue icon of a person" id="person_icon"></a>
+                <a href="cart.php"><img src="images/blue_cart_icon.svg" alt="blue icon of a cart" id="cart_icon"></a>
+                <a href="login.php"><img src="images/person_icon.svg" alt="blue icon of a person" id="person_icon"></a>
             </div>
         </div>
 
