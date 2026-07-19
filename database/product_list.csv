@@ -1,0 +1,44 @@
+product_id,product_name,category,price_yen,stock,description
+1,Pocky Chocolate,Chocolate,198,172,"Thin crispy biscuit sticks coated in rich milk chocolate. Japan's most iconic snack, perfect for sharing. A must-try treat loved by all ages."
+2,Pocky Strawberry,Chocolate,218,238,"Classic Pocky sticks dipped in sweet strawberry-flavored chocolate. A fruity twist on the original, popular among kids and adults alike."
+3,KitKat Matcha,Chocolate,398,411,Premium Japanese KitKat featuring layers of crispy wafer coated in smooth matcha white chocolate. A beloved souvenir straight from Japan.
+4,KitKat Sakura,Chocolate,432,357,Limited-edition cherry blossom flavored KitKat with a delicate floral sweetness. A beautiful seasonal treat unique to Japan.
+5,Black Thunder Chocolate Bar,Chocolate,108,386,A crunchy chocolate bar packed with cocoa cookies and crispy bits. Famous for its bold flavor and incredible value — a convenience store legend.
+6,Meiji Apollo Strawberry Chocolates,Chocolate,248,241,"Adorable cone-shaped chocolates with a strawberry top and milk chocolate base. Bite-sized, colorful, and irresistibly delicious."
+7,Dars Chocolate,Chocolate,268,491,Silky smooth milk chocolate pieces that melt in your mouth. Each box contains individually wrapped squares perfect for savoring slowly.
+8,Koala's March Cookies,Chocolate,248,132,Cute koala-shaped biscuits filled with creamy chocolate. Each cookie features a unique koala illustration — fun to eat and collect.
+9,Glico Almond Chocolate,Chocolate,348,98,Whole roasted almonds enrobed in premium Glico milk chocolate. A satisfying combination of crunch and creaminess in every bite.
+10,Meiji Macadamia Chocolate,Chocolate,398,216,"Crunchy macadamia nuts wrapped in velvety Meiji milk chocolate. A rich and indulgent treat, perfect as a gift or personal reward."
+11,Toppo Chocolate Sticks,Chocolate,238,274,Crispy pretzel-like tubes filled with smooth chocolate cream inside. The clever inside-out design keeps your fingers clean while snacking.
+12,Meiji Marble Chocolates,Chocolate,228,479,Colorful candy-coated chocolate drops with a satisfying crunch shell and creamy milk chocolate center. Great for sharing by the handful.
+13,Meiji Kinoko no Yama,Chocolate,248,283,Adorable mushroom-shaped biscuits topped with milk chocolate caps. One of Japan's most beloved snacks with a perfect biscuit-to-chocolate ratio.
+14,Takenoko no Sato,Chocolate,248,11,Bamboo shoot-shaped cookies coated in rich chocolate. The rival to Kinoko no Yama — pick your side in Japan's most delicious debate.
+15,Chocoball Peanut,Chocolate,108,367,Roasted peanuts coated in a thin layer of sweet milk chocolate. A classic Japanese snack loved for its satisfying crunch and affordable price.
+16,Shiroi Koibito Cookies,Traditional Sweets,1296,414,"Hokkaido's most famous souvenir — delicate langue de chat cookies sandwiched with white or milk chocolate. Elegant, buttery, and utterly refined."
+17,Tokyo Banana,Traditional Sweets,1512,286,Tokyo's signature souvenir cake — soft sponge filled with smooth banana-flavored cream. Individually wrapped and beautifully presented.
+18,Matcha Mochi,Traditional Sweets,324,125,Soft and chewy rice cake dusted with premium matcha powder. A traditional Japanese confection with an earthy green tea flavor and pillowy texture.
+19,Daifuku Mochi,Traditional Sweets,216,442,"Pillowy soft rice cake filled with sweet red bean paste. A staple of Japanese wagashi culture, enjoyed year-round as a tea-time treat."
+20,Yokan Sweet Bean Jelly,Traditional Sweets,648,322,"A firm, elegant jelly made from red bean paste and agar. This classic Japanese confection is subtly sweet and pairs beautifully with green tea."
+21,Sakuma Drops Candy,Traditional Sweets,324,429,A nostalgic Japanese tin of assorted fruit-flavored hard candies. Iconic packaging and timeless flavors make this a cherished gift across generations.
+22,Konpeito Sugar Candy,Traditional Sweets,378,82,Delicate star-shaped sugar crystals in pastel colors. These traditional Japanese sweets have been enjoyed since the 16th century and make a charming gift.
+23,Bourbon Alfort Cookies,Traditional Sweets,248,457,"Crispy chocolate biscuits topped with a layer of smooth milk chocolate. A refined everyday treat from Bourbon, one of Japan's top confectionery brands."
+24,Lotte Custard Cake,Traditional Sweets,268,201,"Soft, fluffy sponge cake filled with rich custard cream. A comforting Japanese snack cake with a light texture and gentle sweetness."
+25,Calbee Shrimp Chips,Snacks,178,97,"Light and airy puffed snacks bursting with savory shrimp flavor. Made by Calbee, Japan's leading snack brand — addictively crunchy and hard to put down."
+26,Senbei Rice Crackers,Snacks,248,497,"Traditional Japanese rice crackers seasoned with soy sauce and salt. Baked to a satisfying crunch, these are a timeless and wholesome Japanese snack."
+27,Jagabee Potato Snacks,Snacks,238,150,Thick-cut potato sticks lightly salted and baked for a natural potato flavor. Calbee's premium potato snack — more satisfying than ordinary chips.
+28,Wasabi Peas,Snacks,218,317,Crunchy roasted green peas coated in a sharp wasabi seasoning. A bold and spicy snack with a satisfying kick — great for wasabi lovers.
+29,Umeboshi Dried Plum Snacks,Snacks,298,310,"Tangy and salty dried Japanese plum snacks with a bold, distinctive flavor. A traditional taste of Japan loved for its unique sweet-sour punch."
+30,Koikeya Seaweed Chips,Snacks,218,148,Crispy potato chips seasoned with savory seaweed flavor. A uniquely Japanese take on classic chips with a subtle umami depth in every bite.
+31,Pretz Tomato Flavor,Snacks,178,388,"Slender baked pretzel sticks seasoned with tangy tomato flavor. Less sweet than Pocky, Pretz is a savory snack great for any time of day."
+32,Peach Gummies,Snacks,138,277,Soft and juicy gummy candies bursting with sweet white peach flavor. Made with real fruit juice — a popular Japanese summer treat.
+33,Grape Gummies,Snacks,138,65,Chewy grape-flavored gummies with an intensely fruity taste. Made with Kyoho grape juice for an authentic and refreshing Japanese candy experience.
+34,Ramune Soda,Drinks,162,278,Classic Japanese marble-stoppered soda in the iconic original lemon-lime flavor. Popping the marble is part of the fun — a nostalgic summer drink.
+35,Melon Soda,Drinks,172,298,Sweet and refreshing Japanese melon-flavored soda with a vibrant green color. A staple of Japanese cafes and a beloved retro flavor.
+36,Suntory Boss Coffee,Drinks,168,296,"Rich and smooth canned coffee from Suntory's legendary Boss brand. A staple of Japanese vending machines — bold flavor, ready to drink anywhere."
+37,Itoen Green Tea,Drinks,158,150,"Pure and refreshing unsweetened green tea brewed from carefully selected Japanese leaves. Clean, smooth taste with natural antioxidants."
+38,UCC Coffee Can,Drinks,168,333,Pioneering Japanese canned coffee with a balanced blend of rich coffee and light milk. UCC invented the canned coffee category back in 1969.
+39,Calpis Soda,Drinks,162,223,"Bubbly and refreshing soda with Calpis's signature mild yogurt-like sweetness. A uniquely Japanese flavor that's light, tangy, and completely addictive."
+40,Fanta Grape,Drinks,158,130,Bold grape-flavored Fanta with a distinctly sweeter Japanese formula. A popular fizzy drink available in flavors exclusive to Japan.
+41,Asahi Juroku-cha Tea,Drinks,158,93,"A refreshing blended herbal tea made from 16 carefully selected ingredients. Caffeine-free, lightly roasted, and perfect for everyday hydration."
+42,Sapporo Ichiban Ramen,Instant Noodles,278,478,Japan's top-selling instant ramen with springy noodles in a rich soy sauce broth. A comforting bowl ready in minutes — a pantry staple across Japan.
+43,Nissin Cup Noodles,Instant Noodles,228,275,"The world's first cup noodle, invented in Japan. Iconic seafood-flavored broth with tender noodles — just add hot water and enjoy in 3 minutes."
