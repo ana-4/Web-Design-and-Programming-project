@@ -1,24 +1,21 @@
 <?php
 require('./models/database.php');
 require('./models/categories_db.php');
+require('./models/carts_db.php');
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
 
 $categories = getCategories();
-
-$cartItems = [
-    [
-        'id' => 1,
-        'name' => 'Famichiki',
-        'image' => "images/family_mart_logo.png" 
-        'price' => 213,
-        'quantity' => 1,
-    ],
-];
+$cartItems = getCartItems($_SESSION['user_id']);
 
 $subtotal = 0;
 foreach ($cartItems as $item) {
     $subtotal += $item['price'] * $item['quantity'];
 }
-$delivery = 400;
+$delivery = empty($cartItems) ? 0 : 400; //0 if no items
 $total = $subtotal + $delivery;
 ?>
 
@@ -62,7 +59,9 @@ $total = $subtotal + $delivery;
 
             <div id="page_links">
                 <a href="cart.php"><img src="images/blue_cart_icon.svg" alt="blue icon of a cart" id="cart_icon"></a>
-                <a href="login.php"><img src="images/person_icon.svg" alt="blue icon of a person" id="person_icon"></a>
+                <form action="logout.php" method="GET" id="logout_form">
+                    <button type="submit" id="logout_btn">Log out</button>
+                </form>
             </div>
         </div>
 
@@ -94,17 +93,29 @@ $total = $subtotal + $delivery;
                             <td>¥<?= $item['price'] ?></td>
                             <td>
                                 <div class="quantity_control">
-                                    <button type="button" class="qty_btn" id="minus_<?= $item['id'] ?>">-</button>
-                                    <span class="qty_value" id="qty_<?= $item['id'] ?>"><?= $item['quantity'] ?></span>
-                                    <button type="button" class="qty_btn" id="plus_<?= $item['id'] ?>">+</button>
+                                    <form action="update_cart.php" method="GET" class="qty_form">
+                                        <input type="hidden" name="product_id" value="<?= $item['product_id'] ?>">
+                                        <input type="hidden" name="action" value="decrease">
+                                        <button type="submit" class="qty_btn">-</button>
+                                    </form>
+                                    <span class="qty_value"><?= $item['quantity'] ?></span>
+                                    <form action="update_cart.php" method="GET" class="qty_form">
+                                        <input type="hidden" name="product_id" value="<?= $item['product_id'] ?>">
+                                        <input type="hidden" name="action" value="increase">
+                                        <button type="submit" class="qty_btn">+</button>
+                                    </form>
                                 </div>
                             </td>
-                            <td><a href="#" class="delete_link" id="delete_<?= $item['id'] ?>">Delete</a></td>
+                            <td><a href="delete_from_cart.php?product_id=<?= $item['product_id'] ?>" class="delete_link">Delete</a></td>
                             <td>¥<?= $item['price'] * $item['quantity'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
+            <?php if (empty($cartItems)): ?>
+                <p id="empty_cart_message">Your cart is empty.</p>
+            <?php endif; ?>
 
             <div id="cart_summary_wrapper">
                 <div id="cart_summary_label">Cart summary</div>
@@ -125,7 +136,9 @@ $total = $subtotal + $delivery;
                     </div>
                 </div>
 
-                <button type="button" id="checkout_btn">Checkout</button>
+                <form action="checkout.php" method="POST">
+                    <button type="submit" id="checkout_btn" <?= empty($cartItems) ? 'disabled' : '' ?>>Checkout</button>
+                </form>
             </div>
         </div>
     </main>

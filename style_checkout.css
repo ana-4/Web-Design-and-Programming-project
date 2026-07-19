@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#checkout_message_container {
+    max-width: 500px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 2rem;
+    background-color: #E7E7E7;
+    border-radius: 25px;
+}
+
+#checkout_message_container h2 {
+    margin-top: 0;
+    color: #009E48;
+}
+
+.back_link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: #0091C4;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+}
+
+.back_link:hover {
+    background-color: #007ba6;
+}

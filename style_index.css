@@ -203,6 +203,35 @@
     border-radius: 25px;
   }
 
+  #page_links a[href="logout.php"] {
+    background-color: #E7E7E7;
+    color: #0091C4;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+  #logout_form {
+    margin: 0;
+}
+
+  #logout_btn {
+    background-color: #E7E7E7;
+    border: none;
+    color: #0091C4;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 0.6rem 1rem;
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+  #logout_btn:hover {
+    background-color: #d4d4d4;
+}
+
 @media (max-width: 768px) {
     #header_center {
         height: auto;

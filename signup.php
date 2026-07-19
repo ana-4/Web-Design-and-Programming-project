@@ -2,33 +2,38 @@
 require('./models/database.php');
 require('./models/categories_db.php');
 require('./models/users_db.php');
- 
+
 $categories = getCategories();
 $error = '';
+$name = '';
+$email = '';
 
 if (isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit;
 }
- 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email    = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $password = $_POST['password'] ?? '';
- 
-    if ($email && $password !== '') {
-        $user = getUserByEmail($email);
- 
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id']   = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
- 
-            header('Location: index.php');
-            exit;
-        } else {
-            $error = 'Incorrect email or password.';
-        }
+    $name            = trim($_POST['name'] ?? '');
+    $email           = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $password        = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirm_password'] ?? '';
+
+    if ($name === '' || !$email || $password === '') {
+        $error = 'Please fill in all fields with a valid email.';
+    } elseif (strlen($password) < 6) {
+        $error = 'Password must be at least 6 characters long.';
+    } elseif ($password !== $confirmPassword) {
+        $error = 'Passwords do not match.';
+    } elseif (emailExists($email)) {
+        $error = 'An account with this email already exists.';
     } else {
-        $error = 'Please enter a valid email and password.';
+        $userId = createUser($name, $email, $password);
+        $_SESSION['user_id']   = $userId;
+        $_SESSION['user_name'] = $name;
+
+        header('Location: index.php');
+        exit;
     }
 }
 ?>
@@ -84,24 +89,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <div id="login_page_container">
             <div class="login_card">
-                <h2>User Log In</h2>
+                <h2>Create Account</h2>
 
-                 <?php if ($error): ?>
+                <?php if ($error): ?>
                     <p class="login_error"><?= htmlspecialchars($error) ?></p>
                 <?php endif; ?>
 
-                <form action="login.php" method="POST" id="login_form">
+                <form action="signup.php" method="POST" id="login_form">
                     <div class="login_form_box">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" value="<?= htmlspecialchars($name) ?>" required>
+
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" value="<?= isset($email) ? htmlspecialchars($email ?: '') : '' ?>" required>
+                        <input type="email" id="email" name="email" value="<?= $email ? htmlspecialchars($email) : '' ?>" required>
+
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" required>
+
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
                     </div>
 
-                    <button type="submit" class="login_btn">Log in</button>
+                    <button type="submit" class="login_btn">Sign up</button>
                 </form>
 
-                <p class="signup_text">Don't have an account? <a href="signup.php">Sign up</a></p>
+                <p class="signup_text">Already have an account? <a href="login.php">Log in</a></p>
             </div>
         </div>
     </main>

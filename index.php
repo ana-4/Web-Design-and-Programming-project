@@ -54,7 +54,13 @@ if (isset($_GET['category']) && !empty($_GET['category'])) {
 
             <div id="page_links">
                 <a href="cart.php"><img src="images/blue_cart_icon.svg" alt="blue icon of a cart" id="cart_icon"></a>
-                <a href="login.php"><img src="images/person_icon.svg" alt="blue icon of a person" id="person_icon"></a>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <form action="logout.php" method="GET" id="logout_form">
+                        <button type="submit" id="logout_btn">Log out</button>
+                    </form>
+                <?php else: ?>
+                        <a href="login.php"><img src="images/person_icon.svg" alt="blue icon of a person" id="person_icon"></a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -75,7 +81,7 @@ if (isset($_GET['category']) && !empty($_GET['category'])) {
                             <p class="price_product">¥<?= $product['price'] ?></p>
                             <h2><?= htmlspecialchars($product['name']) ?></h2>
                             <?php 
-                                if (isset($_GET['user']) && !empty($_GET['user'])) { ?>
+                                if (isset($_SESSION['user_id'])) { ?>
                                     <a href="product_page.php?id=<?= $product['id'] ?>">
                                         <img src="images/cart_icon.svg" alt="cart icon">
                                         <p>Add to cart</p>
