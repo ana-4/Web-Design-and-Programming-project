@@ -50,7 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <link rel="stylesheet" href="style_index.css">
     <link rel="stylesheet" href="style_login.css">
-
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
 </head>
 
 <body>
@@ -60,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div id="header_center">
-            <div class="selection_menu">
+            <div id="selection_menu">
                 <button>Shop by categories ⌄</button>
                 <div class="selection_elt">
                     <?php foreach ($categories as $category): ?>

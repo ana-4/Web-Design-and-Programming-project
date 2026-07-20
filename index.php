@@ -26,6 +26,9 @@ if (isset($_GET['category']) && !empty($_GET['category'])) {
     <Title>E-commerce Website</Title>
 
     <link rel="stylesheet" href="style_index.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
 
 </head>
 
@@ -36,7 +39,7 @@ if (isset($_GET['category']) && !empty($_GET['category'])) {
         </div>
 
         <div id="header_center">
-            <div class="selection_menu">
+            <div id="selection_menu">
                 <button>Shop by categories ⌄</button>
                 <div class="selection_elt">
                     <?php foreach ($categories as $category): ?>

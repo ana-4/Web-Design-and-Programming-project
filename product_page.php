@@ -7,7 +7,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $product = getProductById($id);
 $categories = getCategories();
 ?>
-<!-- recupérer le user pour le faire passer dans le add to cart -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +19,9 @@ $categories = getCategories();
     <Title>E-commerce Website</Title>
 
     <link rel="stylesheet" href="style_product_page.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
 
 </head>
 
@@ -29,7 +32,7 @@ $categories = getCategories();
         </div>
 
         <div id="header_center">
-            <div class="selection_menu">
+            <div id="selection_menu">
                 <button>Shop by categories ⌄</button>
                 <div class="selection_elt">
                     <?php foreach ($categories as $category): ?>
@@ -47,7 +50,14 @@ $categories = getCategories();
 
             <div id="page_links">
                 <a href="cart.php"><img src="images/blue_cart_icon.svg" alt="blue icon of a cart" id="cart_icon"></a>
-                <a href="login.php"><img src="images/person_icon.svg" alt="blue icon of a person" id="person_icon"></a>
+                <?php
+                    if (!isset($_SESSION['user_id'])) { ?>
+                        <a href="login.php"><img src="images/person_icon.svg" alt="blue icon of a person" id="person_icon"></a>
+                    <?php } else { ?>
+                        <form action="logout.php" method="GET" id="logout_form">
+                            <button type="submit" id="logout_btn">Log out</button>
+                        </form>
+                    <?php } ?>
             </div>
         </div>
 
@@ -79,7 +89,7 @@ $categories = getCategories();
                                 <input type="number" id="quantity_input" name="quantity" value="1" min="1" max="<?= $product['stock'] ?>">
                             </section>
                         
-                            <button type="submit" id="cart">
+                            <button type="submit" id="cart_btn">
                                 <img src="images/cart_icon.svg" alt="Cart icon">
                                 <p>Add to cart</p>
                             </button>

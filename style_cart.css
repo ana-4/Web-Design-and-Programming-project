@@ -22,6 +22,7 @@
     background-color: #009E48;
     color: black;
     font-weight: bold;
+    border-radius: 15px;
 }
 
 #cart_table thead th {
@@ -80,8 +81,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: black;
-    font-family: Georgia, serif;
     padding: 0;
 }
 
@@ -143,7 +142,6 @@
 
 #checkout_btn {
     background-color: #009E48;
-    color: black;
     font-weight: bold;
     font-size: 1.1rem;
     border: none;
@@ -151,8 +149,6 @@
     padding: 0.85rem 2rem;
     margin-top: 1.5rem;
     cursor: pointer;
-    font-family: Georgia, serif;
-    width: 100%;
 }
 
 #checkout_btn:hover {
@@ -177,6 +173,6 @@
 
     #cart_table thead th,
     #cart_table tbody td {
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem 0.2rem;
     }
 }

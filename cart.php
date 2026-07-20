@@ -15,7 +15,7 @@ $subtotal = 0;
 foreach ($cartItems as $item) {
     $subtotal += $item['price'] * $item['quantity'];
 }
-$delivery = empty($cartItems) ? 0 : 400; //0 if no items
+$delivery = empty($cartItems) ? 0 : 400;
 $total = $subtotal + $delivery;
 ?>
 
@@ -31,6 +31,9 @@ $total = $subtotal + $delivery;
 
     <link rel="stylesheet" href="style_index.css">
     <link rel="stylesheet" href="style_cart.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
 
 </head>
 
@@ -41,7 +44,7 @@ $total = $subtotal + $delivery;
         </div>
 
         <div id="header_center">
-            <div class="selection_menu">
+            <div id="selection_menu">
                 <button>Shop by categories ⌄</button>
                 <div class="selection_elt">
                     <?php foreach ($categories as $category): ?>
@@ -76,7 +79,7 @@ $total = $subtotal + $delivery;
             <table id="cart_table">
                 <thead>
                     <tr>
-                        <th class="product_name_col">Product Name</th>
+                        <th>Product Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th></th>

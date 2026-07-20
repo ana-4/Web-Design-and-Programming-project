@@ -9,7 +9,7 @@
   }
 
   body {
-    font-family: Georgia, serif;
+    font-family: "Inter", Georgia, serif;
     font-size: 100%;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@
     background-color: #009E48;
   }
 
-  .selection_menu {
+  #selection_menu {
     position: relative;
     display: inline-block;
   }
@@ -95,12 +95,16 @@
     display: block;
   }
 
-  .selection_menu:hover .selection_elt {
+  #selection_menu:hover button {
+    background-color: #D4D4D4;
+  }
+
+  #selection_menu:hover .selection_elt {
     display: block;
   }
 
   .selection_elt a:hover {
-    background-color: #E7E7E7;
+    background-color: #D4D4D4;
     border-radius: 15px;
   }
 
@@ -168,24 +172,48 @@
     gap: 6rem
   }
 
-  #cart {
+  #cart_btn {
     width: 200px;
     height: 55px;
     border-radius: 45px;
     justify-content: center;
     align-items: center;
-    color: black;
     font-size: x-large;
+    font-weight: bold;
     border: none;
     display: flex;
     background-color: #E7E7E7;
     margin-top: 5rem;
+    cursor: pointer;
   }
 
-  #cart img {
+  #cart_btn:hover {
+    background-color: #D4D4D4;
+  }
+
+  #cart_btn img {
     width: 30px;
     height: auto;
     margin-right: 0.75rem;
+  }
+
+  #logout_form {
+    margin: 0;
+  }
+
+  #logout_btn {
+    background-color: #E7E7E7;
+    border: none;
+    color: #0091C4;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+
+  #logout_btn:hover {
+    background-color: #d4d4d4;
   }
 
   #product_img {

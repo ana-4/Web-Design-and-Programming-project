@@ -56,9 +56,7 @@
     border: none;
     border-radius: 20px;
     padding: 0.75rem 1rem;
-    font-family: Georgia, serif;
     font-size: 1rem;
-    background-color: white;
 }
 
 .login_form_box input:focus {
@@ -76,11 +74,14 @@
     padding: 0.75rem;
     width: 100%;
     cursor: pointer;
-    font-family: Georgia, serif;
 }
 
 .login_btn:hover {
     background-color: #007ba6;
+}
+
+.login_error {
+    color: white;
 }
 
 .signup_text {
@@ -95,7 +96,7 @@
 }
 
 @media (max-width: 768px) {
-    .login_card {
+    #login_card {
         padding: 1.25rem 1.25rem 1.5rem;
     }
 
