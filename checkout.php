@@ -59,6 +59,10 @@ try {
     <link rel="stylesheet" href="style_index.css">
     <link rel="stylesheet" href="style_checkout.css">
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+
 </head>
 
 <body>
